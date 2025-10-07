@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React + TS</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    /**
+     * This function captures uncaught exceptions that occur within the iframe.
+     */
+    window.onerror = function (message, source, lineno, colno, error) {
+      // Package the error details into a structured object.
+      const errorPayload = {
+        message: message,
+        source: source, // The URL of the script where the error occurred
+        lineno: lineno,
+        colno: colno,
+        stack: error ? error.stack : 'No stack available'
+      };
+
+      // Send the error details to the parent window.
+      // For security, in production you should replace '*' with your main app's origin,
+      // e.g., 'https://metainside.io'
+      window.parent.postMessage({
+        type: 'iframeError',
+        payload: errorPayload
+      }, '*');
+
+      // Return true to prevent the error from being logged to the console a second time.
+      return true;
+    };
+
+    /**
+     * This listener captures unhandled promise rejections.
+     */
+    window.addEventListener('unhandledrejection', event => {
+      window.parent.postMessage({
+        type: 'iframeError',
+        payload: {
+          message: 'Unhandled promise rejection: ' + (event.reason.message || event.reason),
+          stack: event.reason.stack || 'No stack available'
+        }
+      }, '*');
+    });
+  </script>
+</body>
+
+</html>

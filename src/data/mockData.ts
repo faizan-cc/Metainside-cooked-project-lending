@@ -1,0 +1,83 @@
+import { Loan } from '../types';
+
+export const mockLoans: Loan[] = [
+  {
+    id: '0x1234567890abcdef',
+    borrowerId: 'current-borrower',
+    borrowerName: 'Maria Santos',
+    borrowerReputation: 720,
+    reputationTrend: 'up',
+    lenderId: 'current-user',
+    lenderName: 'John Doe',
+    principal: 500,
+    interestRate: 12,
+    duration: 6,
+    startTime: new Date('2024-01-01'),
+    nextPaymentDue: new Date('2024-02-01'),
+    remainingBalance: 350,
+    status: 'active',
+    purpose: 'Small business inventory'
+  },
+  {
+    id: '0x2345678901bcdef0',
+    borrowerId: '0xuser2',
+    borrowerName: 'Ahmed Hassan',
+    borrowerReputation: 850,
+    reputationTrend: 'stable',
+    lenderId: 'current-user',
+    lenderName: 'John Doe',
+    principal: 1000,
+    interestRate: 10,
+    duration: 12,
+    startTime: new Date('2023-12-01'),
+    nextPaymentDue: new Date('2024-02-01'),
+    remainingBalance: 800,
+    status: 'active',
+    purpose: 'Agricultural equipment'
+  },
+  {
+    id: '0x3456789012cdef01',
+    borrowerId: '0xuser3',
+    borrowerName: 'Priya Patel',
+    borrowerReputation: 680,
+    reputationTrend: 'up',
+    principal: 300,
+    interestRate: 14,
+    duration: 3,
+    nextPaymentDue: new Date('2024-03-01'),
+    remainingBalance: 300,
+    status: 'requested',
+    purpose: 'Education expenses'
+  },
+  {
+    id: '0x4567890123def012',
+    borrowerId: 'current-borrower',
+    borrowerName: 'Maria Santos',
+    borrowerReputation: 720,
+    reputationTrend: 'up',
+    lenderId: '0xlender2',
+    lenderName: 'Jane Smith',
+    principal: 200,
+    interestRate: 11,
+    duration: 4,
+    startTime: new Date('2023-11-01'),
+    nextPaymentDue: new Date('2024-02-01'),
+    remainingBalance: 100,
+    status: 'active',
+    purpose: 'Medical expenses'
+  },
+  {
+    id: '0x5678901234ef0123',
+    borrowerId: '0xuser4',
+    borrowerName: 'Chen Wei',
+    borrowerReputation: 790,
+    reputationTrend: 'stable',
+    principal: 750,
+    interestRate: 9.5,
+    duration: 9,
+    nextPaymentDue: new Date('2024-04-01'),
+    remainingBalance: 750,
+    status: 'requested',
+    purpose: 'Home renovation'
+  }
+];
